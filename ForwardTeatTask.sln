@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForwardTeatTask", "ForwardTeatTask.csproj", "{3AE3010F-1DE7-4CFC-8E82-20B1C0C72CC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AE3010F-1DE7-4CFC-8E82-20B1C0C72CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE3010F-1DE7-4CFC-8E82-20B1C0C72CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE3010F-1DE7-4CFC-8E82-20B1C0C72CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE3010F-1DE7-4CFC-8E82-20B1C0C72CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4983D37-ABC0-41F4-B524-B21E9CA7E92F}
+	EndGlobalSection
+EndGlobal

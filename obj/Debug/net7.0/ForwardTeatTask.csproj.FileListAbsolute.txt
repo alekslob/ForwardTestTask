@@ -1,0 +1,15 @@
+D:\Codes\ForwardTeatTask\bin\Debug\net7.0\ForwardTeatTask.exe
+D:\Codes\ForwardTeatTask\bin\Debug\net7.0\ForwardTeatTask.deps.json
+D:\Codes\ForwardTeatTask\bin\Debug\net7.0\ForwardTeatTask.runtimeconfig.json
+D:\Codes\ForwardTeatTask\bin\Debug\net7.0\ForwardTeatTask.dll
+D:\Codes\ForwardTeatTask\bin\Debug\net7.0\ForwardTeatTask.pdb
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.csproj.AssemblyReference.cache
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.GeneratedMSBuildEditorConfig.editorconfig
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.AssemblyInfoInputs.cache
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.AssemblyInfo.cs
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.csproj.CoreCompileInputs.cache
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.dll
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\refint\ForwardTeatTask.dll
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.pdb
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ForwardTeatTask.genruntimeconfig.cache
+D:\Codes\ForwardTeatTask\obj\Debug\net7.0\ref\ForwardTeatTask.dll
