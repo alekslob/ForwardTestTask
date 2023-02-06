@@ -8,7 +8,7 @@ namespace Radiat
     {
         public static void Main(string[] args){
             try{
-                Engine<IInternalCombustionEngineData> ice = new InternalCombustionEngine("./data.json");
+                Engine<IInternalCombustionEngineData> ice = new InternalCombustionEngine("data.json");
                 
                 Test<IInternalCombustionEngineData> test = new Test<IInternalCombustionEngineData>(ice);
                 test.test1();

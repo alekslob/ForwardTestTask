@@ -1,6 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
+using System.IO;
 public class Engine<T>{
     public T options;
     public double AmbientTemperature {get; set;}
@@ -21,9 +21,15 @@ public class Engine<T>{
     public virtual double getMaxTemperature(){return 0;}
     public virtual int getCountTimeSegments(){return 0;}
     private void ReadData(string filename){
-        StreamReader r = new StreamReader(filename);
-        string json = r.ReadToEnd();
-        options = JsonSerializer.Deserialize<T>(json);
+         try{
+            if(!System.IO.File.Exists(filename)) throw new Exception($"Файл \"{filename}\" не существует");
+            StreamReader r = new StreamReader(filename);
+            string json = r.ReadToEnd();
+            options = JsonSerializer.Deserialize<T>(json);
+        }
+        catch{
+            throw;
+        }
     }
     public string ReadConsole(string mess){
         string str = "";
