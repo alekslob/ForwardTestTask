@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -8,9 +8,9 @@ namespace Radiat
     {
         public static void Main(string[] args){
             try{
-                Engine<IInternalCombustionEngineData> ice = new InternalCombustionEngine("data.json");
+                Engine<InternalCombustionEngineData> ice = new InternalCombustionEngine("data.json");
                 
-                Test<IInternalCombustionEngineData> test = new Test<IInternalCombustionEngineData>(ice);
+                Test<InternalCombustionEngineData> test = new Test<InternalCombustionEngineData>(ice);
                 test.test1();
             }
             catch{ }

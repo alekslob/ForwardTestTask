@@ -14,7 +14,7 @@ public class Test<T>{
             while(MaxTemperature > testEngine.EngineTemperature){
                 PrevTemperature = testEngine.EngineTemperature;
                 testEngine.Work(i);
-                //Console.Write($"{time}, {EngineTemperature};");
+
                 if(testEngine.EngineTemperature-PrevTemperature<1e-6) {
                     testEngine.Message($"t двигателя не изменяется: {time} сек");
                     break;
@@ -30,7 +30,7 @@ public class Test<T>{
                 
             }
             if(MaxTemperature <= testEngine.EngineTemperature)testEngine.Message($"Перегрев: {time} сек");
-            //else Message($"Закончил без перегрева: {time} сек");
+
         }
         catch(Exception e){
             throw;

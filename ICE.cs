@@ -1,5 +1,5 @@
 
-public class IInternalCombustionEngineData{
+public class InternalCombustionEngineData{
     public int I {get;set;}
     public double[] M {get; set;}
     public double[] V {get;set;}
@@ -9,7 +9,7 @@ public class IInternalCombustionEngineData{
     public double C {get; set;}
 }
 
-public class InternalCombustionEngine: Engine<IInternalCombustionEngineData>{
+public class InternalCombustionEngine: Engine<InternalCombustionEngineData>{
     public InternalCombustionEngine(string filename):base(filename){
         try{
             if(options.I == 0) throw new Exception("Не задан I");
