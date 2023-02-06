@@ -15,7 +15,7 @@ public class Test<T>{
                 PrevTemperature = testEngine.EngineTemperature;
                 testEngine.Work(i);
 
-                if(testEngine.EngineTemperature-PrevTemperature<1e-6) {
+                if(Math.Abs(testEngine.EngineTemperature-PrevTemperature)<1e-6) {
                     testEngine.Message($"t двигателя не изменяется: {time} сек");
                     break;
                 }
