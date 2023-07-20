@@ -11,7 +11,7 @@ namespace ForwardTeatTask
         public double AmbientTemperature { get; set; }
         public double EngineTemperature { get; set; }
     }
-    public interface IEngine
+    public interface IEngine: IEngineData
     {
         public double GetMaxTemperature() { return 0; }
         public int GetCountTimeSegments() { return 0; }

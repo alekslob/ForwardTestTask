@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ForwardTeatTask
 {
-    public class ICETest
+    public class Test
     {
-        public InternalCombustionEngine engine { get; set; }
-        public ICETest(InternalCombustionEngine ice)
+        public IEngine eng { get; set; }
+        public Test(IEngine engine)
         {
-            engine = ice;
+            eng = engine;
         }
         public void RunTest1()
         {
@@ -19,15 +19,15 @@ namespace ForwardTeatTask
             {
                 int i = 0, time = 0, endTime;
                 double PrevTemperature = 0;
-                endTime = engine.GetTime(i);
-                double MaxTemperature = engine.GetMaxTemperature();
-                int CountTimeSegments = engine.GetCountTimeSegments();
-                while (MaxTemperature > engine.EngineTemperature)
+                endTime = eng.GetTime(i);
+                double MaxTemperature = eng.GetMaxTemperature();
+                int CountTimeSegments = eng.GetCountTimeSegments();
+                while (MaxTemperature > eng.EngineTemperature)
                 {
-                    PrevTemperature = engine.EngineTemperature;
-                    engine.Step(i);
+                    PrevTemperature = eng.EngineTemperature;
+                    eng.Step(i);
 
-                    if (Math.Abs(engine.EngineTemperature - PrevTemperature) < 1e-6)
+                    if (Math.Abs(eng.EngineTemperature - PrevTemperature) < 1e-6)
                     {
                         Message.InConsole($"t двигателя не изменяется: {time} сек");
                         break;
@@ -38,12 +38,12 @@ namespace ForwardTeatTask
                     {
 
                         i++;
-                        if (i < CountTimeSegments) endTime = engine.GetTime(i);
+                        if (i < CountTimeSegments) endTime = eng.GetTime(i);
 
                     }
 
                 }
-                if (MaxTemperature <= engine.EngineTemperature) Message.InConsole($"Перегрев: {time} сек");
+                if (MaxTemperature <= eng.EngineTemperature) Message.InConsole($"Перегрев: {time} сек");
 
             }
             catch (Exception e)

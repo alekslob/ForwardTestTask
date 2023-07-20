@@ -10,7 +10,7 @@ namespace Radiat
         public static void Main(string[] args){
             try{
                 InternalCombustionEngine ice = Config<InternalCombustionEngine>.Initialize();
-                ICETest test = new ICETest(ice);
+                Test test = new Test(ice);
                 test.RunTest1();
             }
             catch{ }
