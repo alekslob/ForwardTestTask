@@ -22,12 +22,12 @@ namespace ForwardTeatTask
                 endTime = eng.GetTime(i);
                 double MaxTemperature = eng.GetMaxTemperature();
                 int CountTimeSegments = eng.GetCountTimeSegments();
-                while (MaxTemperature > eng.EngineTemperature)
+                while (MaxTemperature > eng.engineTemperature)
                 {
-                    PrevTemperature = eng.EngineTemperature;
+                    PrevTemperature = eng.engineTemperature;
                     eng.Step(i);
 
-                    if (Math.Abs(eng.EngineTemperature - PrevTemperature) < 1e-6)
+                    if (Math.Abs(eng.engineTemperature - PrevTemperature) < 1e-6)
                     {
                         Message.InConsole($"t двигателя не изменяется: {time} сек");
                         break;
@@ -43,7 +43,7 @@ namespace ForwardTeatTask
                     }
 
                 }
-                if (MaxTemperature <= eng.EngineTemperature) Message.InConsole($"Перегрев: {time} сек");
+                if (MaxTemperature <= eng.engineTemperature) Message.InConsole($"Перегрев: {time} сек");
 
             }
             catch (Exception e)

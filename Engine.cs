@@ -8,8 +8,8 @@ namespace ForwardTeatTask
 {
     public interface IEngineData
     {
-        public double AmbientTemperature { get; set; }
-        public double EngineTemperature { get; set; }
+        public double ambientTemperature { get; set; }
+        public double engineTemperature { get; set; }
     }
     public interface IEngine: IEngineData
     {

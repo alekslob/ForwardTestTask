@@ -8,8 +8,8 @@ namespace ForwardTeatTask
 {
     public class InternalCombustionEngineData: IEngineData
     {
-        public double AmbientTemperature { get; set; }
-        public double EngineTemperature { get; set; }
+        public double ambientTemperature { get; set; }
+        public double engineTemperature { get; set; }
         public int I { get; set; } = 10;
         public List<int> M { get; set; } = new List<int>() { 20, 75, 100, 105, 75, 0 };
         public List<int> V { get; set; } = new List<int>() { 0, 75, 150, 200, 250, 300 };
@@ -48,7 +48,7 @@ namespace ForwardTeatTask
         }
         private double CalculateVc()
         {
-            double result = C * (AmbientTemperature - EngineTemperature);
+            double result = C * (ambientTemperature - engineTemperature);
             return result;
         }
         public void Step(int i)
@@ -56,7 +56,7 @@ namespace ForwardTeatTask
             double Vn, Vc;
             Vn = CalculateVn(i);
             Vc = CalculateVc();
-            EngineTemperature += (Vn + Vc);
+            engineTemperature += (Vn + Vc);
 
         }
     }

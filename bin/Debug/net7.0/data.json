@@ -1,6 +1,6 @@
 {
-  "AmbientTemperature": 0,
-  "EngineTemperature": 0,
+  "ambientTemperature": 0,
+  "engineTemperature": 0,
   "I": 10,
   "M": [
     20,
