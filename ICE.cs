@@ -1,58 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class InternalCombustionEngineData{
-    public int I {get;set;}
-    public double[] M {get; set;}
-    public double[] V {get;set;}
-    public int T {get; set;}
-    public double Hm {get; set;}
-    public double Hv {get; set;}
-    public double C {get; set;}
-}
-
-public class InternalCombustionEngine: Engine<InternalCombustionEngineData>{
-    public InternalCombustionEngine(string filename):base(filename){
-        try{
-            if(options.I == 0) throw new Exception("Не задан I");
-            if(options.M == null) throw new Exception("Не задан M");
-            if(options.V == null) throw new Exception("Не задан V");
-            if(options.M.Length != options.V.Length) throw new Exception("V и M не соответствуют");
-            if(options.T == 0) throw new Exception("Не задан T");
-            if(options.Hm == 0) throw new Exception("Не задан Hm");
-            if(options.Hv == 0) throw new Exception("Не задан Hv");
-            if(options.C == 0) throw new Exception("Не задан C");
-        }
-        catch(Exception e){
-            Message(e.Message);
-            throw;
-        }
-        
-    }
-    public override double getMaxTemperature(){return options.T;}
-    public override int getCountTimeSegments(){return options.M.Length-1;}
-    public override int getTime(int count){
-        int result = 0;
-        double a;
-        for(int i=0; i <= count; i++){
-            a = (options.M[i])/options.I;
-            result += (int) Math.Sqrt((options.V[i+1]-options.V[i])/a);
-        }
-        return result;
-    }
-    private double CalculateVn(int i){
-        double result = options.M[i]*options.Hm + Math.Pow(options.V[i], 2)*options.Hv;
-        return result;
-    }
-    private double CalculateVc(int i){
-        double result = options.C*(AmbientTemperature - EngineTemperature);
-        return result;
-    }
-    public override void Work(int i)
+namespace ForwardTeatTask
+{
+    public class InternalCombustionEngineData: Engine
     {
-        double Vn, Vc;
-        Vn = CalculateVn(i);
-        Vc = CalculateVc(i);
-        EngineTemperature += (Vn + Vc);
-
+        public int I { get; set; } = 10;
+        public List<int> M { get; set; } = new List<int>() { 20, 75, 100, 105, 75, 0 };
+        public List<int> V { get; set; } = new List<int>() { 0, 75, 150, 200, 250, 300 };
+        public int T { get; set; } = 110;
+        public double Hm { get; set; } = 0.01;
+        public double Hv { get; set; } = 0.0001;
+        public double C { get; set; } = 0.1;
     }
+    public class InternalCombustionEngine : InternalCombustionEngineData
+    {
+        public override double GetMaxTemperature()
+        {
+            return T;
+        }
+        public override int GetCountTimeSegments()
+        {
+            return M.Count - 1;
+        }
 
+        public override int GetTime(int count)
+        {
+            int result = 0;
+            double a;
+            for (int i = 0; i <= count; i++)
+            {
+                a = M[i] / I;
+                result += (int)Math.Sqrt((V[i + 1] - V[i])/a);
+            }
+            return result;
+        }
+
+        private double CalculateVn(int i)
+        {
+            double result = M[i] * Hm + Math.Pow(V[i], 2) * Hv;
+            return result;
+        }
+        private double CalculateVc()
+        {
+            double result = C * (AmbientTemperature - EngineTemperature);
+            return result;
+        }
+        public override void Step(int i)
+        {
+            double Vn, Vc;
+            Vn = CalculateVn(i);
+            Vc = CalculateVc();
+            EngineTemperature += (Vn + Vc);
+
+        }
+    }
 }

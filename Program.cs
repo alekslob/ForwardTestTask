@@ -1,6 +1,7 @@
 ﻿
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using ForwardTeatTask;
 
 namespace Radiat
 {
@@ -8,10 +9,9 @@ namespace Radiat
     {
         public static void Main(string[] args){
             try{
-                Engine<InternalCombustionEngineData> ice = new InternalCombustionEngine("data.json");
-                
-                Test<InternalCombustionEngineData> test = new Test<InternalCombustionEngineData>(ice);
-                test.test1();
+                InternalCombustionEngine ice = Config<InternalCombustionEngine>.Initialize();
+                ICETest test = new ICETest(ice);
+                test.RunTest1();
             }
             catch{ }
             finally{
