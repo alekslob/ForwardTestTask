@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ForwardTeatTask
 {
-    public class InternalCombustionEngineData: Engine
+    public class InternalCombustionEngineData: IEngineData
     {
+        public double AmbientTemperature { get; set; }
+        public double EngineTemperature { get; set; }
         public int I { get; set; } = 10;
         public List<int> M { get; set; } = new List<int>() { 20, 75, 100, 105, 75, 0 };
         public List<int> V { get; set; } = new List<int>() { 0, 75, 150, 200, 250, 300 };
@@ -16,18 +18,18 @@ namespace ForwardTeatTask
         public double Hv { get; set; } = 0.0001;
         public double C { get; set; } = 0.1;
     }
-    public class InternalCombustionEngine : InternalCombustionEngineData
+    public class InternalCombustionEngine : InternalCombustionEngineData, IEngine
     {
-        public override double GetMaxTemperature()
+        public double GetMaxTemperature()
         {
             return T;
         }
-        public override int GetCountTimeSegments()
+        public int GetCountTimeSegments()
         {
             return M.Count - 1;
         }
 
-        public override int GetTime(int count)
+        public int GetTime(int count)
         {
             int result = 0;
             double a;
@@ -49,7 +51,7 @@ namespace ForwardTeatTask
             double result = C * (AmbientTemperature - EngineTemperature);
             return result;
         }
-        public override void Step(int i)
+        public void Step(int i)
         {
             double Vn, Vc;
             Vn = CalculateVn(i);
